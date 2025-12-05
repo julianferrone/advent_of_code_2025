@@ -84,8 +84,6 @@ defmodule Day5 do
     |> Enum.reduce(
       MapSet.new(),
       fn range, acc ->
-        IO.inspect(range, label: "range")
-        IO.inspect(acc, label: "acc")
 
         overlapping_range =
           Enum.find(
@@ -94,7 +92,6 @@ defmodule Day5 do
               overlaps?(previous_range, range)
             end
           )
-          |> IO.inspect(label: "found_index")
 
         case overlapping_range do
           nil ->
@@ -112,8 +109,8 @@ defmodule Day5 do
 
   def recurse_recombine_all(ranges) do
     recombined = combine_all(ranges)
-    length_ranges = length(ranges) |> IO.inspect(label: "length_ranges")
-    length_recombined = length(recombined) |> IO.inspect(label: "length_recombined")
+    length_ranges = length(ranges)
+    length_recombined = length(recombined)
 
     if length_ranges == length_recombined do
       recombined
